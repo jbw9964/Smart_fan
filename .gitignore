@@ -1,5 +1,5 @@
 # Privates
-.build/
+build/
 
 # General
 .DS_Store
