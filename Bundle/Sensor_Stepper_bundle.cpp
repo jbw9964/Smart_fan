@@ -170,6 +170,4 @@ int Sensor_Stepper_bundle::process_signal(Sensor_LED_bundle &led_bundle)
     return this->process_signal();
 }
 
-
-
 # endif

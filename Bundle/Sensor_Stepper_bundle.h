@@ -30,6 +30,7 @@ class Stepper_motor
         void rotate_right(int step);
         void rotate_left(int step);
 };
+
 class Sensor_Stepper_bundle
 {
     private :
