@@ -70,7 +70,7 @@ class Sensor : public Basic_port
         {
             int signal = read_signal();
 
-            if ((signal != Prev_status) && signal == LOW)
+            if ((signal != Prev_status) && (signal == LOW))
             {
                 Prev_status = LOW;
                 return true;

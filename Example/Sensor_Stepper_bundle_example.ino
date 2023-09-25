@@ -1,7 +1,7 @@
 
-# include "../Bundle/Rotate_button_bundle.h"
+# include "../Bundle/Sensor_Stepper_bundle.h"
 
-Rotate_button_bundle temp;
+Sensor_Stepper_bundle temp;
 
 int total_step = 200;
 int pin1 = 2;

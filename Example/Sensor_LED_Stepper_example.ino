@@ -1,7 +1,7 @@
 
 # include <Arduino.h>
-# include "../Bundle/LED_Button_bundle.h"
-# include "../Bundle/Rotate_button_bundle.h"
+# include "../Bundle/Sensor_LED_bundle.h"
+# include "../Bundle/Sensor_Stepper_bundle.h"
 
 enum PORT_LED
 {
@@ -142,9 +142,9 @@ enum PORT_stepper
     Dependency  :   <Stepper.h>
 */
 
-LED_Button_bundle LED_bundle(motor, true, false);
+Sensor_LED_bundle LED_bundle(motor, true, false);
 
-Rotate_button_bundle Step_bundle;
+Sensor_Stepper_bundle Step_bundle;
 
 int total_step = 200;
 int current_angle = 0;

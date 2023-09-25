@@ -2,10 +2,10 @@
 # define PORT_SENSOR 5
 # define PORT_OUTPUT 8
 
-# include "./Bundle/LED_Button_bundle.h"
-# include "./Bundle/Rotate_button_bundle.h"
+# include "./Bundle/Sensor_LED_bundle.h"
+# include "./Bundle/Sensor_Stepper_bundle.h"
 
-LED_Button_bundle temp(PORT_OUTPUT, true, false);
+Sensor_LED_bundle temp(PORT_OUTPUT, true, false);
 
 void setup()
 {
