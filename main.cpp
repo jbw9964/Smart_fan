@@ -1,7 +1,7 @@
 
 # include <Arduino.h>
-# include <bundle_refactor.h>
-# include <Raspberry_pi_Json.h>
+# include "./lib/Bundle_refactor/src/bundle_refactor.h"
+# include "./lib/Raspberry_pi_Json/src/Raspberry_pi_Json.h"
 
 enum LED_PORTS
 {

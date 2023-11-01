@@ -2,7 +2,7 @@
 # ifndef __Raspberry_pi_JSON_func__
 # define __Raspberry_pi_JSON_func__
 
-# include <Raspberry_pi_Json.h>
+# include "./Raspberry_pi_Json.h"
 
 /*
 Raspberry_pi_Json:

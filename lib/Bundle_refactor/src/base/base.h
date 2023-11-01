@@ -61,7 +61,7 @@ class Sensor : public Basic_port
 
 
 # ifndef __Bundle_base_func__
-    # include <base/base.cpp>
+    # include "./base.cpp"
 # endif
 
 # endif
