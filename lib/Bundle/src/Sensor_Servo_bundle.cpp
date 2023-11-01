@@ -3,7 +3,7 @@
 # define __Sensor_Servo_bundle_func__
 
 # ifndef __Sensor_Servo_bundle__
-# include "Sensor_Servo_bundle.h"
+    # include "./Sensor_Servo_bundle.h"
 # endif
 
 bool Sensor_Servo_bundle::is_good()
