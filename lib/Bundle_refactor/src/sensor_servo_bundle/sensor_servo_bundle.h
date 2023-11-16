@@ -4,7 +4,7 @@
 
 # include <Arduino.h>
 # include <Servo.h>
-# include "../base/base.h"
+# include <base/base.h>
 
 # define MAX(a, b)  ((a) > (b) ? (a) : (b))
 # define MIN(a, b)  ((a) < (b) ? (a) : (b))
@@ -70,7 +70,7 @@ class sensor_servo_bundle
 
 
 # ifndef __Bundle_sensor_servo_func__
-    # include "./sensor_servo_bundle.cpp"
+    # include <sensor_servo_bundle/sensor_servo_bundle.cpp>
 # endif
 
 # endif

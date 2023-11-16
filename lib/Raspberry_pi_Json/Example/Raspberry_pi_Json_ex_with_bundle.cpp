@@ -1,8 +1,8 @@
 
 
 # include <Arduino.h>
-# include "../../Bundle_refactor/src/bundle_refactor.h"
-# include "../src/Raspberry_pi_Json.h"
+# include <bundle_refactor.h>
+# include <Raspberry_pi_Json.h>
 
 enum LED_PORTS
 {
@@ -22,7 +22,7 @@ enum LED_PORTS
 
 sensor_LED_bundle sensor_led_bundle;
 sensor_servo_bundle sensor_servo;
-Raspberry_pi_Json serial_receiver;
+Raspberry_pi_Json serial_receiver(&Serial, &Serial1);
 
 
 void setup()

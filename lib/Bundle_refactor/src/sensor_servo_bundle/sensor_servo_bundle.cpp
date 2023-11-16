@@ -2,7 +2,7 @@
 # ifndef __Bundle_sensor_servo_func__
 # define __Bundle_sensor_servo_func__
 
-# include "./sensor_servo_bundle.h"
+# include <sensor_servo_bundle/sensor_servo_bundle.h>
 
 /*
 sensor_servo_bundle:

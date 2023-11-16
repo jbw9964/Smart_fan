@@ -3,7 +3,7 @@
 # define __Bundle_sensor_led__
 
 # include <Arduino.h>
-# include "../base/base.h"
+# include <base/base.h>
 
 class LED_Bulk
 {
@@ -67,7 +67,7 @@ class sensor_LED_bundle
 };
 
 # ifndef __Bundle_sensor_led_func__
-    # include "./sensor_LED_bundle.cpp"
+    # include <sensor_LED_bundle/sensor_LED_bundle.cpp>
 # endif
 
 # endif

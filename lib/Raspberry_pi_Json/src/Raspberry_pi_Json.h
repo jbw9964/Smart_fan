@@ -7,10 +7,10 @@
 
 # define JSON_CAPACITY  (5 * JSON_OBJECT_SIZE(4))
 # define SERIAL_SPEED   115200
-# define KEY_MSG_1      "Angle_left"
-# define KEY_MSG_2      "Angle_right"
-# define KEY_MSG_3      "Is_detected"
-# define KEY_MSG_4      "QUIT"
+# define KEY_MSG_1      "Angle_left"                    // integer between [0 ~ 180]
+# define KEY_MSG_2      "Angle_right"                   // integer between [0 ~ 180]
+# define KEY_MSG_3      "Is_detected"                   // boolean
+# define KEY_MSG_4      "QUIT"                          // boolean
 
 class Raspberry_pi_Json
 {
@@ -20,12 +20,16 @@ class Raspberry_pi_Json
         bool Detection_flag;
 
         DynamicJsonDocument *Doc;
+        HardwareSerial *Input_serial;
+        HardwareSerial *Output_serial;
 
         bool QUIT;
     
     public:
         Raspberry_pi_Json();
-        Raspberry_pi_Json(int);
+        Raspberry_pi_Json(HardwareSerial *, HardwareSerial *);
+        Raspberry_pi_Json(unsigned int);
+        Raspberry_pi_Json(HardwareSerial *, HardwareSerial *, unsigned int);
         ~Raspberry_pi_Json();
 
         int angle_Left;

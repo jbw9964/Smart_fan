@@ -2,7 +2,7 @@
 # ifndef __Bundle_sensor_led_func__
 # define __Bundle_sensor_led_func__
 
-# include "./sensor_LED_bundle.h"
+# include <sensor_LED_bundle/sensor_LED_bundle.h>
 
 /*
 LED_bulk:

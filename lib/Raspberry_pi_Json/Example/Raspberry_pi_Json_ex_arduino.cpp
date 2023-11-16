@@ -1,6 +1,6 @@
 
 # include <Arduino.h>
-# include "../src/Raspberry_pi_Json.h"
+# include <Raspberry_pi_Json.h>
 
 Raspberry_pi_Json receiver;
 
@@ -8,13 +8,18 @@ void setup()
 {
     receiver.begin_serial();
 
+    pinMode(LED_BUILTIN, OUTPUT);
+    digitalWrite(LED_BUILTIN, LOW);
+
     Serial.println("Done setup\n");
     delay(100);
 }
 
+
 int angle_l = 0;
 int angle_r = 180;
-bool detection = false;
+bool is_detected = false;
+
 void loop()
 {
     if (receiver.receive_msg())
@@ -27,13 +32,19 @@ void loop()
         }
         angle_l = receiver.angle_Left;
         angle_r = receiver.angle_Right;
-        detection = receiver.detection_Flag;
+        is_detected = receiver.detection_Flag;
+
+        digitalWrite(LED_BUILTIN, HIGH);
+        delay(500);
+        digitalWrite(LED_BUILTIN, LOW);
     }
 
     Serial.print("[angle left] : ");
     Serial.println(angle_l);
     Serial.print("[angle right] : ");
     Serial.println(angle_r);
+    Serial.print("[Is_detected] : ");
+    Serial.println(is_detected);
     Serial.println("");
     delay(1000);
 }

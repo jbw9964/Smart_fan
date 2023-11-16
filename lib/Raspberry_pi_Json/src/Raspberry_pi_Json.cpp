@@ -2,23 +2,35 @@
 # ifndef __Raspberry_pi_JSON_func__
 # define __Raspberry_pi_JSON_func__
 
-# include "./Raspberry_pi_Json.h"
+# include <Raspberry_pi_Json.h>
 
 /*
 Raspberry_pi_Json:
     private:
         int Angle_Left;
         int Angle_Right;
+        bool Detection_flag;
 
         DynamicJsonDocument *Doc;
+        HardwareSerial *Input_serial;
+
+        bool QUIT;
     
     public:
         Raspberry_pi_Json();
+        Raspberry_pi_Json(HardwareSerial);
         Raspberry_pi_Json(int);
+        Raspberry_pi_Json(HardwareSerial, int);
         ~Raspberry_pi_Json();
 
-        int angle_left;
-        int angle_right;
+        int angle_Left;
+        int angle_Right;
+        bool detection_Flag;
+        bool Quit;
+
+        void begin_serial();
+        void begin_serial(unsigned int);
+        void begin_serial(HardwareSerial, unsigned int);
 
         int receive_msg();
 
@@ -29,41 +41,76 @@ Raspberry_pi_Json::Raspberry_pi_Json()
     Angle_Left = -1;
     Angle_Right = -1;
     Doc = new DynamicJsonDocument(JSON_CAPACITY);
+    
+    Input_serial = &Serial;
+    Output_serial = &Serial1;
 }
-Raspberry_pi_Json::Raspberry_pi_Json(int capacity)
+Raspberry_pi_Json::Raspberry_pi_Json(HardwareSerial *input_serial, HardwareSerial *output_serial)
+{
+    Angle_Left = -1;
+    Angle_Right = -1;
+    Doc = new DynamicJsonDocument(JSON_CAPACITY);
+    
+    Input_serial = input_serial;
+    Output_serial = output_serial;
+}
+Raspberry_pi_Json::Raspberry_pi_Json(unsigned int capacity)
 {
     Angle_Left = -1;
     Angle_Right = -1;
     Doc = new DynamicJsonDocument(capacity);
+
+    Input_serial = &Serial;
+    Output_serial = &Serial1;
 }
+Raspberry_pi_Json::Raspberry_pi_Json(HardwareSerial *input_serial, HardwareSerial *output_serial, unsigned int capacity)
+{
+    Angle_Left = -1;
+    Angle_Right = -1;
+    Doc = new DynamicJsonDocument(capacity);
+
+    Input_serial = input_serial;
+    Output_serial = output_serial;
+}
+
 Raspberry_pi_Json::~Raspberry_pi_Json()
 {
     delete Doc;
+    Input_serial = nullptr;
+    Output_serial = nullptr;
 }
 void Raspberry_pi_Json::begin_serial()
 {
-    Serial.begin(SERIAL_SPEED);
-    while (!Serial)     {delay(100);}
+    Input_serial->begin(SERIAL_SPEED);
+    while (!Input_serial)     {delay(100);}
+    delay(100);
+
+    Output_serial->begin(SERIAL_SPEED);
+    while (!Output_serial)     {delay(100);}
     delay(100);
 }
 void Raspberry_pi_Json::begin_serial(unsigned int speed)
 {
-    Serial.begin(speed);
-    while (!Serial)     {delay(100);}
+    Input_serial->begin(speed);
+    while (!Input_serial)     {delay(100);}
+    delay(100);
+
+    Output_serial->begin(speed);
+    while (!Output_serial)     {delay(100);}
     delay(100);
 }
 int Raspberry_pi_Json::receive_msg()
 {
-    if (Serial.available() > 0)
+    if (Input_serial->available() > 0)
     {
-        String json_msg = Serial.readStringUntil('\n');
+        String json_msg = Input_serial->readStringUntil('\n');
         
         DeserializationError err_msg = deserializeJson(*Doc, json_msg);
 
         if (err_msg)
         {
-            Serial.print("[Error] Failed to deserialize Json message - ");
-            Serial.println(err_msg.f_str());
+            Output_serial->print("[Error] Failed to deserialize Json message - ");
+            Output_serial->println(err_msg.f_str());
         }
         else
         {
@@ -85,12 +132,12 @@ int Raspberry_pi_Json::receive_msg()
 }
 void Raspberry_pi_Json::print_info()
 {
-    if (Serial)
+    if (Output_serial)
     {
-        Serial.print("[Angle left] : ");
-        Serial.println(Angle_Left);
-        Serial.print("[Angle right] : ");
-        Serial.println(Angle_Right);
+        Output_serial->print("[Angle left] : ");
+        Output_serial->println(Angle_Left);
+        Output_serial->print("[Angle right] : ");
+        Output_serial->println(Angle_Right);
     }
 }
 
