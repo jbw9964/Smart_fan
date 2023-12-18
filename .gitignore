@@ -1,5 +1,6 @@
 # Privates
 build/
+./test/
 
 # General
 .DS_Store
