@@ -23,9 +23,9 @@ VERBOSE = False
 
 PERSON_CLS_INDEX = None
 SQUARE_BOX_THRESHOLD_RATIO = 0.08
-ANGLE_L = 0
-ANGLE_R = 180
-ANGLE_BIAS = 10
+ANGLE_L = 90 - 25
+ANGLE_R = 90 + 25
+ANGLE_BIAS = 0
 
 SERIAL_class = None
 SERIAL_port = "/dev/ttyUSB0"
@@ -126,26 +126,26 @@ def process_boxes(result_boxes) :
     return valid_bboxes
 
 def min_max_method(valid_bboxes) : 
-    global WIDTH
+    global HEIGHT
     global ANGLE_L, ANGLE_R, ANGLE_BIAS
     
-    min = WIDTH
-    max = 0
+    min_val = HEIGHT
+    max_val = 0
     for bbox in valid_bboxes : 
         (x1, y1, x2, y2) = bbox
         left = x1
         right = x2
 
-        if left < min :     min = left
-        if right > max :    max = right
+        if left < min_val :     min_val = left
+        if right > max_val :    max_val = right
 
-    min = int(min / WIDTH * ANGLE_R + ANGLE_L - ANGLE_BIAS)
-    max = int(max / WIDTH * ANGLE_R + ANGLE_L + ANGLE_BIAS)
+    min_val = int(min_val / HEIGHT * ANGLE_R + ANGLE_L - ANGLE_BIAS)
+    max_val = int(max_val / HEIGHT * ANGLE_R + ANGLE_L + ANGLE_BIAS)
 
-    if min < ANGLE_L :  min = ANGLE_L
-    if max > ANGLE_R :  max = ANGLE_R
+    if min_val < ANGLE_L :  min_val = ANGLE_L
+    if max_val > ANGLE_R :  max_val = ANGLE_R
 
-    return (min, max)
+    return ((min_val + max_val) / 2 - 5, (min_val + max_val) / 2 + 5)
 
 def send_json(angle_left, angle_right) : 
     global SERIAL_class, SERIAL_port
@@ -160,7 +160,6 @@ def send_json(angle_left, angle_right) :
 
     json_data = json.dumps(json_data) + "\n"
     serialized_data = json_data.encode("ascii")
-    # serialized_data = pickle.dumps(json_data)
     SERIAL_class.write(serialized_data)
     SERIAL_class.flush()
 
@@ -198,7 +197,7 @@ def main() :
                 Angle_left, Angle_right = min_max_method(valid_bboxes)
                 print("[ANGLE LEFT] \t: {}".format(Angle_left))
                 print("[ANGLE RIGHT] \t: {}\n".format(Angle_right))
-                # send_json(Angle_left, Angle_right)
+                send_json(Angle_left, Angle_right)
             
             else : 
                 print("No human were detected.\n")
@@ -232,7 +231,6 @@ def main() :
     
     except : 
         print("Unexpected error occured.\n")
-        # raise
     
     finally : 
         print("\nShutting down program...\n")
@@ -260,7 +258,7 @@ if __name__ == "__main__" :
     print("[CAM WIDTH] \t: {}".format(WIDTH))
     print("[CAM HEIGHT] \t: {}\n".format(HEIGHT))
 
-    # SERIAL_class = serial.Serial(SERIAL_port, SERIAL_speed)
+    SERIAL_class = serial.Serial(SERIAL_port, SERIAL_speed)
     
     print("\n---> Sucessfully initialized <---\n")
     print("\rStarting in 3...", end="")
