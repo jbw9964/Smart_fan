@@ -26,7 +26,7 @@ void setup()
     sensor_led_bundle.assign_led(led3);
     sensor_led_bundle.assign_input_sensor(PORT_INPUT_SENSOR);
 
-    sensor_led_bundle.setup_output(PORT_OUTPUT, true);
+    sensor_led_bundle.setup_output(PORT_OUTPUT, false);
 
     Serial.println("Done setup\n");
     sensor_led_bundle.print_port();

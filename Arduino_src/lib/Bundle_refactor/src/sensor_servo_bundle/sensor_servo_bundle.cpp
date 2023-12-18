@@ -115,7 +115,7 @@ void sensor_servo_bundle::assign_angle(int angle_L, int angle_R)
     L_max_angle = MIN(angle_L, angle_R);
     R_max_angle = MAX(angle_L, angle_R);
     angle_Left = L_max_angle;
-    angle_Rright = R_max_angle;
+    angle_Right = R_max_angle;
 }
 void sensor_servo_bundle::assign_angle(int angle_L, int angle_R, bool recognize_angle)
 {
@@ -130,7 +130,18 @@ int sensor_servo_bundle::process_signal()
 {
     if (!is_good())                     {return 1;}
 
-    if (Input_sensor->is_received())    {Mode = !Mode;}
+    if (Input_sensor->is_received())
+    {
+        Mode = !Mode;
+        if (Mode == Spin)
+        {
+            Serial.println("Spin mode Enabled\n");
+        }
+        else
+        {
+            Serial.println("Spin mode Disabled\n");
+        }
+    }
 
     if (Mode == Spin)
     {

@@ -29,17 +29,7 @@ Basic_port::Basic_port(int port)        {Port = port;}                      // s
 void Basic_port::output_setup()         {pinMode(Port, OUTPUT);}            // set Port's pinMode as OUTPUT
 void Basic_port::input_setup()          {pinMode(Port, INPUT);}             // set Port's pinMode as INTPUT
 void Basic_port::input_pullup_setup()   {pinMode(Port, INPUT_PULLUP);}      // set Port's pinMode as INPUT_PULLUP
-// void Basic_port::write_digital(int val) {return digitalWrite(Port, val);}   // write HIGH to Port with digital
-void Basic_port::write_digital(int val)
-{
-    Serial.print("PORT : ");
-    Serial.println(Port);
-    Serial.print("val : ");
-    Serial.println(val);
-    Serial.println("\n");
-
-    digitalWrite(Port, val);
-}
+void Basic_port::write_digital(int val) {return digitalWrite(Port, val);}   // write HIGH to Port with digital
 void Basic_port::write_analog(int val)  {return analogWrite(Port, val);}    // write value to Port with analog
 int Basic_port::read_digital()          {return digitalRead(Port);}         // read Port's value (HIGH/LOW) and return
 int Basic_port::read_analog()           {return analogRead(Port);}          // read Port's value and return

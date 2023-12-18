@@ -26,11 +26,9 @@ LED_bulk:
 */
 LED_Bulk::LED_Bulk()                        // initialize LED_arr as Cap = 3
 {
-    Cap = 5;
+    Cap = 3;
     Head = 0;
     index = 0;
-
-    delete LED_arr;
 
     if (LED_arr == nullptr)     {LED_arr = new LED[Cap];}
 }
@@ -40,16 +38,14 @@ LED_Bulk::LED_Bulk(int capacity)            // initialize LED_arr with capacity;
     Head = 0;
     index = 0;
 
-    delete LED_arr;
-
     if (LED_arr == nullptr)     {LED_arr = new LED[Cap];}
 }
 LED_Bulk::~LED_Bulk()                       // write LOW to LED & turn off
 {
-    for (int i = 0; i < Head; i++)
-    {
-        LED_arr[i].write_low();
-    }
+    // for (int i = 0; i < Head; i++)
+    // {
+    //     LED_arr[i].write_low();
+    // }
     
     delete[] LED_arr;
     LED_arr = nullptr;
@@ -70,9 +66,7 @@ void LED_Bulk::extend()                     // extend LED_arr
 void LED_Bulk::assign_port(int led_port)    // assign LED's Port & setup
 {
     if (is_full())          {extend();}
-
-    LED_arr[Head].assign_port(led_port);
-    Head++;
+    LED_arr[Head++].assign_port(led_port);
 }
 int LED_Bulk::switch_level()                // cycle LED's
 {
@@ -94,6 +88,7 @@ int LED_Bulk::switch_level()                // cycle LED's
 void LED_Bulk::print_port()
 {
     if (!Serial)    {return;}
+
     for (int i = 0; i < Head; i++)
     {
         Serial.print("[LED ");
@@ -223,9 +218,17 @@ int sensor_LED_bundle::process_signal()
 
         if (output_flag == analog)
         {
-            int val_1 = map(Current_level, 0, Max_level, 0, 30);
-            int val_2 = map(val_1, 0, 100, 0, 250);
-            analogWrite(Port_output, val_2);
+            Serial.print("Motor Level : [");
+            Serial.print(Current_level);
+            Serial.println("]");
+            Serial.println("");
+            
+            if (!Current_level)     {analogWrite(Port_output, 0);}
+            else    
+            {
+                int val = map(Current_level * 2 + 7, 0, 100, 0, 255);
+                analogWrite(Port_output, val);
+            }
         }
         else if (Current_level)
         {

@@ -7,7 +7,7 @@
 class Basic_port
 {
     protected:
-        // int Port;
+        int Port;
 
         void output_setup();
         void input_setup();
@@ -17,14 +17,12 @@ class Basic_port
         void write_analog(int);
         int read_digital();
         int read_analog();
+
+        void print_port();
     
     public:
         Basic_port();
         Basic_port(int);
-
-        void print_port();
-
-        int Port;
 };
 
 class LED : public Basic_port
@@ -46,7 +44,7 @@ class LED : public Basic_port
 class Sensor : public Basic_port
 {
     private:
-        // int Prev_status;
+        int Prev_status;
 
         void setup();
         int read();
@@ -59,8 +57,6 @@ class Sensor : public Basic_port
         bool is_received();
 
         void print_port();
-
-        int Prev_status;
 };
 
 

@@ -49,7 +49,7 @@ class sensor_servo_bundle
         int mode;
         int angle_Current;
         int angle_Left;
-        int angle_Rright;
+        int angle_Right;
 
         void assign_input_sensor(int);
         void assign_servo(int);

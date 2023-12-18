@@ -4,12 +4,6 @@
 # include <bundle_refactor.h>
 # include <Raspberry_pi_Json.h>
 
-// # define SERIAL_SPEED   115200
-// # define KEY_MSG_1      "Angle_left"                    // integer between [0 ~ 180]
-// # define KEY_MSG_2      "Angle_right"                   // integer between [0 ~ 180]
-// # define KEY_MSG_3      "Is_detected"                   // boolean
-// # define KEY_MSG_4      "QUIT"                          // boolean
-
 enum LED_PORTS
 {
     led1 = 2,
@@ -79,7 +73,7 @@ void loop()
         }
 
         int prev_l = sensor_servo.angle_Left;
-        int prev_r = sensor_servo.angle_Right;
+        int prev_r = sensor_servo.angle_Rright;
 
         int angle_l = serial_receiver.angle_Left;
         int angle_r = serial_receiver.angle_Right;
@@ -96,7 +90,7 @@ void loop()
         Serial.print("[Right] : ");
         Serial.print(prev_r);
         Serial.print(" --> ");
-        Serial.println(sensor_servo.angle_Right);
+        Serial.println(sensor_servo.angle_Rright);
 
         Serial.print("[Detection] : ");
         Serial.println(detection ? "true" : "false");

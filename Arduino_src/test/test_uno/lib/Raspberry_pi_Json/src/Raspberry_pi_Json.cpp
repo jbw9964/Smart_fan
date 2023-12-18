@@ -43,6 +43,7 @@ Raspberry_pi_Json::Raspberry_pi_Json()
     Doc = new DynamicJsonDocument(JSON_CAPACITY);
     
     Input_serial = &Serial;
+    // Output_serial = &Serial1;
     Output_serial = &Serial;
 }
 Raspberry_pi_Json::Raspberry_pi_Json(HardwareSerial *input_serial, HardwareSerial *output_serial)
@@ -61,6 +62,7 @@ Raspberry_pi_Json::Raspberry_pi_Json(unsigned int capacity)
     Doc = new DynamicJsonDocument(capacity);
 
     Input_serial = &Serial;
+    // Output_serial = &Serial1;
     Output_serial = &Serial;
 }
 Raspberry_pi_Json::Raspberry_pi_Json(HardwareSerial *input_serial, HardwareSerial *output_serial, unsigned int capacity)
@@ -104,6 +106,7 @@ int Raspberry_pi_Json::receive_msg()
     if (Input_serial->available() > 0)
     {
         String json_msg = Input_serial->readStringUntil('\n');
+        Serial.println(json_msg);
         
         DeserializationError err_msg = deserializeJson(*Doc, json_msg);
 

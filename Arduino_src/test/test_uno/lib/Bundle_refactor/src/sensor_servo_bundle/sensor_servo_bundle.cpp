@@ -130,7 +130,18 @@ int sensor_servo_bundle::process_signal()
 {
     if (!is_good())                     {return 1;}
 
-    if (Input_sensor->is_received())    {Mode = !Mode;}
+    if (Input_sensor->is_received())
+    {
+        Mode = !Mode;
+        if (Mode == Spin)
+        {
+            Serial.println("Spin mode Enabled\n");
+        }
+        else
+        {
+            Serial.println("Spin mode Disabled\n");
+        }
+    }
 
     if (Mode == Spin)
     {
@@ -146,7 +157,6 @@ int sensor_servo_bundle::process_signal()
         Current_angle += (Direction == Right) ? Unit_step : -1 * Unit_step;
 
         Servo_motor->write(Current_angle);
-        // Serial.println("Spinning\n");
     }
 
     mode = Mode;

@@ -46,7 +46,7 @@ class Sensor_Servo_bundle
 };
 
 # ifndef __Sensor_Servo_bundle_func__
-    # include "./Sensor_Servo_bundle.cpp"
+# include "Sensor_Servo_bundle.cpp"
 # endif
 
 # endif

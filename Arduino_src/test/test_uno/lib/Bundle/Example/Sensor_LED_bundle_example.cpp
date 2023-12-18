@@ -2,7 +2,7 @@
 # define PORT_SENSOR 5
 # define PORT_OUTPUT 8
 
-# include "../src/Bundle.h"
+# include <Bundle.h>
 
 Sensor_LED_bundle temp(PORT_OUTPUT, true, false);
 

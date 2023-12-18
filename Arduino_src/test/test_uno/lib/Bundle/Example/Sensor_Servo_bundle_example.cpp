@@ -2,7 +2,7 @@
 # define PORT_SENSOR 2
 # define PORT_MOT 3
 
-# include "../src/Bundle.h"
+# include <Bundle.h>
 
 Sensor_Servo_bundle Servo_bundle;
 

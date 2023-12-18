@@ -16,23 +16,25 @@
 
 enum LED_PORTS
 {
-    led1 = 2,
+    led1 = 4,
     led2 = 3,
-    led3 = 4,
+    led3 = 2,
 };
 
-# define PORT_INPUT_SENSOR_1    5
+# define PORT_INPUT_SENSOR_1    7
 # define PORT_MOTOR             11
 # define PORT_MOTOR_DIR         12
 
 # define PORT_INPUT_SENSOR_2    6
 # define PORT_SERVO             9
 
-# define PORT_INPUT_SENSOR_3    7
+# define PORT_INPUT_SENSOR_3    5
 
-# define L_max_angle            10
-# define R_max_angle            180
-# define UNIT_STEP              1
+// # define L_max_angle            10
+// # define R_max_angle            180
+# define L_max_angle            (90 - 50)
+# define R_max_angle            (90 + 50)
+# define UNIT_STEP              2
 
 sensor_LED_bundle sensor_led_bundle;
 sensor_servo_bundle sensor_servo;
@@ -50,7 +52,7 @@ void setup()
     Serial.println("Done setup\n");
 
     pinMode(PORT_MOTOR_DIR, OUTPUT);
-    digitalWrite(PORT_MOTOR_DIR, HIGH);
+    digitalWrite(PORT_MOTOR_DIR, LOW);
     // delay(100);
     
     serial_receiver.begin_serial(9600);
@@ -87,6 +89,12 @@ void setup()
 
 void loop()
 {
+    static int count;
+    // Serial.print("[");
+    // Serial.print(count++);
+    // Serial.print("] :");
+    // Serial.println(Automode_flag);
+
     int var1 = sensor_led_bundle.process_signal();
 
     int var2;
@@ -98,13 +106,23 @@ void loop()
     // Serial.println(var1);
     // Serial.println(var2);
 
-    if (automode_sensor.is_received())  {Automode_flag = !Automode_flag;}
+    if (automode_sensor.is_received())
+    {
+        Automode_flag = !Automode_flag;
+        if (Automode_flag)
+        {
+            Serial.println("Automode Enabled\n");
+        }
+        else
+        {
+            Serial.println("Automode Disabled\n");
+        }
+    }
 
     if (Automode_flag)
     {
         if (sensor_led_bundle.level && serial_receiver.receive_msg())
         {
-            Serial.println("msg");
             if (serial_receiver.Quit)
             {
                 Serial.println("Exiting program...\n");

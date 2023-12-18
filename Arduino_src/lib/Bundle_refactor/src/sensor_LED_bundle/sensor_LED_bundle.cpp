@@ -218,8 +218,17 @@ int sensor_LED_bundle::process_signal()
 
         if (output_flag == analog)
         {
-            int val = map(Current_level, 0, Max_level, 0, 250);
-            analogWrite(Port_output, val);
+            Serial.print("Motor Level : [");
+            Serial.print(Current_level);
+            Serial.println("]");
+            Serial.println("");
+            
+            if (!Current_level)     {analogWrite(Port_output, 0);}
+            else    
+            {
+                int val = map(Current_level * 2 + 7, 0, 100, 0, 255);
+                analogWrite(Port_output, val);
+            }
         }
         else if (Current_level)
         {

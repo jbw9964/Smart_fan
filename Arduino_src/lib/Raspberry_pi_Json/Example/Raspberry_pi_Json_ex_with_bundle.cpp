@@ -22,12 +22,12 @@ enum LED_PORTS
 
 sensor_LED_bundle sensor_led_bundle;
 sensor_servo_bundle sensor_servo;
-Raspberry_pi_Json serial_receiver(&Serial, &Serial1);
+Raspberry_pi_Json serial_receiver(&Serial, &Serial);
 
 
 void setup()
 {
-    serial_receiver.begin_serial();
+    serial_receiver.begin_serial(9600);
     
     sensor_led_bundle.assign_led(led1);
     sensor_led_bundle.assign_led(led2);

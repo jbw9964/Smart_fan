@@ -3,7 +3,7 @@
 # define __Sensor_LED_bundle_func__
 
 # ifndef __Sensor_LED_bundle__
-    # include "./Sensor_LED_bundle.h"
+# include "Sensor_LED_bundle.h"
 # endif
 
 LED_Bulk::LED_Bulk()

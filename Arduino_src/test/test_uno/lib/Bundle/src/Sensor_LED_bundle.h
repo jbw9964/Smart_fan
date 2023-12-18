@@ -75,7 +75,7 @@ class Sensor_LED_bundle
 };
 
 # ifndef __Sensor_LED_bundle_func__
-    # include "./Sensor_LED_bundle.cpp"
+# include "Sensor_LED_bundle.cpp"
 # endif
 
 # endif
