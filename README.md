@@ -56,14 +56,6 @@
 |[`Pyserial`](https://pyserial.readthedocs.io/en/latest/index.html)|This module encapsulates the access for the serial port.|    3.5|
 
 ---
-## File description
-1. [`Raspberry_PI_src/best.pt`](./Raspberry_PI_src/best.pt)  :   A `Yolov8n` model to use image prediction. It's already trained.
-
-2. [`Raspberry_PI_src/Raspi_Yolo.py`](./Raspberry_PI_src/Raspi_Yolo.py)   :   A source code to execute `Raspberry PI`.
-
-3. [`Raspberry_PI_src/test`](./Raspberry_PI_src/test/)    :   A directory that used to test some image, FPS of `Yolov8n`, and others.
-
----
 ## 전체 구동 다이어그램
 <p align="center">
     <img src="./image/Arduino_Raspberry_PI_assemble.drawio.png" style="height :450px" title="Arduino_Raspberry_PI_assemble"/>
