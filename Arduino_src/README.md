@@ -17,11 +17,17 @@
 ## File description
 1. [`lib`](./lib/)  :   A directory that contains library we made.
     - [`Bundle_refactor`](./lib/Bundle_refactor/)   :   A library that contains `BLDC Motor & Power LED control`, `Step Motor control`.
+    
     - [`Raspberry_pi_Json`](./lib/Raspberry_pi_Json/)   :   A library that contains `Serial communication with Raspberry PI`
 
-In each library, there's example directory that shows how to use it.
+    In each library, there's `example` directory that shows how to use it.
+    
+    - [`Arduino bundle Example code`](./lib/Bundle_refactor/Example)
+    - [`Arduino serial communication Example code`](./lib/Raspberry_pi_Json/Example)
+    - [`Arduino Examples with Online simulator`](#source-code-example-with-wokwi)
 
 2. [`test`](./test/)    :   A directory that tested sourcode using [`PlatformIO IDE for VSCode`](https://docs.platformio.org/en/latest/integration/ide/vscode.html)
+    
     - In directory, there's copy of [`lib`](./lib/) codes.
 
 3. [`main.cpp`](./main.cpp) :   A source code to execute `Arduino`.

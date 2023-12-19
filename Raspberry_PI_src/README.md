@@ -16,7 +16,7 @@
 
 ---
 ## File description
-1. [`best.pt`](./)  :   A `Yolov8n` model to use image prediction. It's already trained.
+1. [`best.pt`](./best.pt)  :   A `Yolov8n` model to use image prediction. It's already trained.
 
 2. [`Raspi_Yolo.py`](./Raspi_Yolo.py)   :   A source code to execute `Raspberry PI`.
 
