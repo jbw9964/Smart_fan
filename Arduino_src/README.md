@@ -9,7 +9,7 @@
 
 ## Essential library
 |Name|Description|Dependency|
-|---|---|---|
+|:---:|---|:---:|
 |[`ArduinoJson`](https://arduinojson.org/)|ArduinoJson is a C++ JSON library for Arduino and IoT (Internet Of Things).|[`Raspberry_pi_Json`](./lib/Raspberry_pi_Json/)|
 |[`Servo`](https://www.arduino.cc/reference/en/libraries/servo/)|Allows Arduino boards to control a variety of servo motors.|[`sensor_servo_bundle`](./lib/Bundle_refactor/src/sensor_servo_bundle/)|
 

@@ -7,7 +7,7 @@
     - Desktop OS with long-term support for RPi 4/400 models with 2Gb+
 
 |Package|Description|Version|
-|-------|---|------:|
+|:-------:|---|:------:|
 |[`OpenCV-python`](https://github.com/opencv/opencv-python?tab=readme-ov-file)|OpenCV (Open Source Computer Vision Library: http://opencv.org) is an open-source BSD-licensed library that includes several hundreds of computer vision algorithms.|   4.8.1.78|
 |[`Ultralytics`](https://github.com/ultralytics/ultralytics)|Ultralytics YOLOv8 is a cutting-edge, state-of-the-art (SOTA) model that builds upon the success of previous YOLO versions and introduces new features and improvements to further boost performance and flexibility.|   8.0.205|
 |[`Pytorch`](https://github.com/pytorch/pytorch)|PyTorch is a Python package that provides Tensor computation (like NumPy) with strong GPU acceleration & Deep neural networks built on a tape-based autograd system|   2.0.1|
