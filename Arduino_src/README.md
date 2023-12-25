@@ -4,7 +4,7 @@
 ## Class dependency diagram
 
 <p align="center">
-    <img src="../image/arduino_class_diagram.drawio.png" style="height :500px" title="arduino_class_diagram"/>
+    <img src="../image/arduino_class_diagram.drawio.png" style="height :500px, width :100px" title="arduino_class_diagram"/>
 </p>
 
 ## Essential library
@@ -36,21 +36,21 @@
 ## BLDC Motor & LED control diagram - [`sensor_LED_bundle`](./lib/Bundle_refactor/src/sensor_LED_bundle/)
 
 <p align="center">
-    <img src="../image/sensor_led_bundle.drawio.png" style="height :500px" title="sensor_led_bundle"/>
+    <img src="../image/sensor_led_bundle.drawio.png" style="height :500px, width :100px" title="sensor_led_bundle"/>
 </p>
 
 ---
 ## Step Motor control diagram - [`sensor_servo_bundle`](./lib/Bundle_refactor/src/sensor_servo_bundle/)
 
 <p align="center">
-    <img src="../image/sensor_servo_bundle.drawio.png" style="height :500px" title="sensor_servo_bundle"/>
+    <img src="../image/sensor_servo_bundle.drawio.png" style="height :500px, width :100px" title="sensor_servo_bundle"/>
 </p>
 
 ---
 ## Serial communication diagram - [`Raspberry_pi_Json`](./lib/Raspberry_pi_Json/)
 
 <p align="center">
-    <img src="../image/Raspberry_pi_Json.drawio.png" style="height :500px" title="Raspberry_pi_Json"/>
+    <img src="../image/Raspberry_pi_Json.drawio.png" style="height :500px, width :100px" title="Raspberry_pi_Json"/>
 </p>
 
 ---
@@ -61,32 +61,32 @@
 - [`sensor_led_ex.cpp`](./lib/Bundle_refactor/Example/sensor_led_ex.cpp), [`link`](https://wokwi.com/projects/379994211146222593)
 
 <p align="center">
-    <img src="../image/sensor_led_ex.png" style="height :200px" title="sensor_led_ex"/>
+    <img src="../image/sensor_led_ex.png" style="height :200px, width :100px" title="sensor_led_ex"/>
 </p>
 
 - [`sensor_servo_ex.cpp`](./lib/Bundle_refactor/Example/sensor_servo_ex.cpp), [`link`](https://wokwi.com/projects/380078546995202049)
 
 <p align="center">
-    <img src="../image/sensor_servo_ex.png" style="height :200px" title="sensor_servo_ex"/>
+    <img src="../image/sensor_servo_ex.png" style="height :200px, width :100px" title="sensor_servo_ex"/>
 </p>
 
 
 - [`sensor_led_servo_ex.cpp`](./lib/Bundle_refactor/Example/sensor_led_servo_ex.cpp), [`link`](https://wokwi.com/projects/380118249583351809)
 
 <p align="center">
-    <img src="../image/sensor_led_servo_ex.png" style="height :200px" title="sensor_led_servo_ex"/>
+    <img src="../image/sensor_led_servo_ex.png" style="height :200px, width :100px" title="sensor_led_servo_ex"/>
 </p>
 
 - [`Raspberry_pi_Json_ex_arduino.cpp`](./lib/Raspberry_pi_Json/Example/Raspberry_pi_Json_ex_arduino.cpp), [`link`](https://wokwi.com/projects/380111390036382721)
 
 <p align="center">
-    <img src="../image/Raspberry_pi_Json_ex_arduino.png" style="height :200px" title="Raspberry_pi_Json_ex_arduino"/>
+    <img src="../image/Raspberry_pi_Json_ex_arduino.png" style="height :200px, width :100px" title="Raspberry_pi_Json_ex_arduino"/>
 </p>
 
 - [`Raspberry_pi_Json_ex_with_bundle.cpp`](./lib/Raspberry_pi_Json/Example/Raspberry_pi_Json_ex_with_bundle.cpp), [`link`](https://wokwi.com/projects/380119484960149505)
 
 <p align="center">
-    <img src="../image/Raspberry_pi_Json_ex_with_bundle.png" style="height :200px" title="Raspberry_pi_Json_ex_with_bundle"/>
+    <img src="../image/Raspberry_pi_Json_ex_with_bundle.png" style="height :200px, width :100px" title="Raspberry_pi_Json_ex_with_bundle"/>
 </p>
 
 ---

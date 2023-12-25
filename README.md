@@ -6,7 +6,7 @@
 ---
 ## 시연 연상
 <p align="center">
-    <img src="./video/시연연상_고속.gif" style="height :350px" title="시연연상_고속"/>
+    <img src="./video/시연연상_고속.gif" style="height :350px, width :120px" title="시연연상_고속"/>
 </p>
 
 ---
@@ -58,17 +58,17 @@
 ---
 ## 전체 구동 다이어그램
 <p align="center">
-    <img src="./image/Arduino_Raspberry_PI_assemble.drawio.png" style="height :450px" title="Arduino_Raspberry_PI_assemble"/>
+    <img src="./image/Arduino_Raspberry_PI_assemble.drawio.png" style="height :350px, width :100px" title="Arduino_Raspberry_PI_assemble"/>
 </p>
 
 ## [`Arduino`](./Arduino_src/main.cpp) 구동 다이어그램
 <p align="center">
-    <img src="./image/Arduino_assemble.drawio.png" style="height :450px" title="Arduino_assemble"/>
+    <img src="./image/Arduino_assemble.drawio.png" style="height :350px, width :100px" title="Arduino_assemble"/>
 </p>
 
 ## [`Raspberry PI`](./Raspberry_PI_src/Raspi_Yolo.py) 구동 다이어그램
 <p align="center">
-    <img src="./image/raspberry_diagram_full.drawio.png" style="height :450px" title="raspberry_diagram_full"/>
+    <img src="./image/raspberry_diagram_full.drawio.png" style="height :350px, width :100px" title="raspberry_diagram_full"/>
 </p>
 
 ---

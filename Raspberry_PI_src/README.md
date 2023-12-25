@@ -26,7 +26,7 @@
 ## Raspberry PI control diagram - [`Raspi_Yolo.py`](./Raspi_Yolo.py)
 
 <p align="center">
-    <img src="../image/raspberry_diagram_full.drawio.png" style="height :500px" title="시연연상_고속"/>
+    <img src="../image/raspberry_diagram_full.drawio.png" style="height :500px, width :100px" title="시연연상_고속"/>
 </p>
 
 
