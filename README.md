@@ -14,7 +14,7 @@
 - [Google drive](https://drive.google.com/drive/folders/1KDkIDbJClLCs2PSDF32Jh9lOeURkHSr8?usp=sharing)
 
 ---
-## Arduino file description
+## [Arduino file description](https://github.com/jbw9964/Smart_fan/blob/main/Arduino_src/README.md)
 1. [`Arduino_src/lib`](./Arduino_src/lib/)  :   A directory that contains library we made.
     - [`Arduino_src/lib/Bundle_refactor`](./Arduino_src/lib/Bundle_refactor/)   :   A library that contains `BLDC Motor & Power LED control`, `Step Motor control`.
     
@@ -32,7 +32,7 @@
 3. [`Arduino_src/main.cpp`](./Arduino_src/main.cpp) :   A source code to execute `Arduino`.
 
 ---
-## Raspberry PI file description
+## [Raspberry PI file description](https://github.com/jbw9964/Smart_fan/blob/main/Raspberry_PI_src/README.md)
 1. [`Raspberry_PI_src/best.pt`](./Raspberry_PI_src/best.pt)  :   A `Yolov8n` model to use image prediction. It's already trained.
 
 2. [`Raspberry_PI_src/Raspi_Yolo.py`](./Raspberry_PI_src/Raspi_Yolo.py)   :   A source code to execute `Raspberry PI`.
